@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How the pieces move &middot; JBW Chess Club</title>
+    <meta name="description" content="Interactive boards showing how the pawn, rook, bishop, knight, queen and king move, for beginners at the JBW Chess Club." />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <link rel="stylesheet" href="assets/css/board.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%9E%3C/text%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the lesson</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">&#9822;&#xFE0E;</span>
+          <span>
+            <strong>JBW Chess Club</strong>
+            <small>J. B. Watkins Elementary School</small>
+          </span>
+        </a>
+        <a class="header-link" href="lessons.html">
+          <span aria-hidden="true">&#9776;</span>
+          <span class="link-long">All lessons</span>
+          <span class="link-short">Lessons</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+      <p class="crumb">Lesson 1</p>
+      <h1>How the pieces move</h1>
+      <p class="lede">
+        Every board below is live: click a piece and its legal squares light up.
+      </p>
+
+      <h2>First, the board</h2>
+      <p>
+        A chessboard has 64 squares. The columns going up and down are called <strong>files</strong>
+        and they are named <code>a</code> to <code>h</code>. The rows going across are called
+        <strong>ranks</strong> and they are numbered <code>1</code> to <code>8</code>. Put them
+        together and every square has its own name, like <code>e4</code> or <code>g7</code>.
+      </p>
+      <div class="note rule">
+        <p><strong>Set-up rule.</strong> Turn the board so each player has a <em>light square in the
+        bottom right corner</em>. Then the white queen starts on a light square and the black queen
+        starts on a dark square: <em>queen on her own colour</em>.</p>
+      </div>
+
+      <figure data-widget="explorer" data-title="Find the squares" data-squares="true"
+              data-prompt="Click around the board. The sentence here will tell you the name of the square you picked."></figure>
+
+      <h2>The pawn</h2>
+      <p>
+        Pawns are the little ones and they <strong>move straight ahead but capture diagonally</strong>. A pawn may never move backwards.
+      </p>
+      <ul class="checklist">
+        <li>Normally a pawn moves <strong>one square forward</strong>.</li>
+        <li>On its <strong>very first move only</strong>, a pawn may go two squares instead.</li>
+        <li>A pawn captures by moving <strong>one square diagonally forward</strong>.</li>
+      </ul>
+
+      <figure data-widget="explorer" data-fen="7k/8/8/8/8/8/3P4/K7 w - - 0 1"
+              data-title="A pawn that has not moved yet"
+              data-prompt="Click the white pawn. It has two choices: one square or two."></figure>
+
+      <figure data-widget="explorer" data-fen="7k/8/8/2p1p3/3P4/8/8/K7 w - - 0 1"
+              data-title="A pawn with something to capture"
+              data-prompt="Click the white pawn. Notice it can capture on either diagonal, or push straight ahead."></figure>
+
+      <figure data-widget="explorer" data-fen="7k/8/8/3p4/3P4/8/8/K7 w - - 0 1"
+              data-title="A pawn that is stuck"
+              data-prompt="Click the white pawn. Nothing lights up! Pawns cannot capture straight ahead, so these two are blocking each other forever."></figure>
+
+      <h2>The rook</h2>
+      <p>
+        The rook moves in <strong>straight lines</strong>: up, down, left or right, as far as it likes.
+        It cannot jump over anything.
+      </p>
+
+      <figure data-widget="explorer" data-fen="7k/8/8/3R4/8/8/8/K7 w - - 0 1"
+              data-title="A rook on an empty board"
+              data-prompt="Click the rook. Count the squares: a rook in the middle of an empty board always reaches exactly 14 squares."></figure>
+
+      <figure data-widget="explorer" data-fen="7k/3p4/8/3R4/8/8/3P4/K7 w - - 0 1"
+              data-title="A rook with traffic"
+              data-prompt="Click the rook. It stops when it reaches a piece: it can capture the black pawn, but its own pawn blocks it completely."></figure>
+
+      <h2>The bishop</h2>
+      <p>
+        The bishop moves <strong>diagonally</strong>, as far as it likes. Here is the consequence of that diagonal movement:
+        a bishop that starts on a light square stays on light squares for the entire game.
+      </p>
+
+      <figure data-widget="explorer" data-fen="7k/8/8/3B4/8/8/8/K7 w - - 0 1"
+              data-title="A bishop on an empty board"
+              data-prompt="Click the bishop. Every square it can reach is the same colour as the one it stands on."></figure>
+
+      <h2>The knight</h2>
+      <p>
+        The knight moves in an <strong>L shape</strong>: two squares one way, then one square
+        to the side. It is the only piece that can <strong>jump over</strong> other pieces.
+      </p>
+      <div class="note">
+        <p><strong>Easy way to remember.</strong> A knight always lands on a square of the
+        <em>opposite colour</em> to the one it started on. If you cannot see the jump, look for the
+        nearest squares of the other colour that are not next door.</p>
+      </div>
+
+      <figure data-widget="explorer" data-fen="7k/8/8/3N4/8/8/8/K7 w - - 0 1"
+              data-title="A knight on an empty board"
+              data-prompt="Click the knight. From the middle it has eight jumps. Push it into a corner and it only has two. Knights hate corners."></figure>
+
+      <figure data-widget="explorer" data-fen="7k/8/2ppp3/2pNp3/2ppp3/8/8/K7 w - - 0 1"
+              data-title="Surrounded, but not trapped"
+              data-prompt="Click the knight. It is completely boxed in by pawns and it still has eight moves. Only the knight can do this."></figure>
+
+      <h2>The queen</h2>
+      <p>
+        The queen is a rook and a bishop in one piece: <strong>straight lines and diagonals</strong>,
+        as far as she likes. She is the most powerful piece on the board, which is exactly why you
+        should not throw her into the middle of the enemy army early in the game.
+      </p>
+
+      <figure data-widget="explorer" data-fen="7k/8/8/3Q4/8/8/8/K7 w - - 0 1"
+              data-title="The queen on an empty board"
+              data-prompt="Click the queen. From the middle she attacks 27 squares, almost half the board."></figure>
+
+      <h2>The king</h2>
+      <p>
+        The king moves <strong>one square in any direction</strong>. He is slow, but he is the whole
+        game: if your king cannot escape from an attack, you lose.
+      </p>
+      <div class="note warn">
+        <p><strong>The one rule kings cannot break.</strong> A king may never move onto a square where
+        it would be captured. That is why the board below will not let you go everywhere.</p>
+      </div>
+
+      <figure data-widget="explorer" data-fen="7k/8/8/3K4/8/3r4/8/8 w - - 0 1"
+              data-title="A king near an enemy rook"
+              data-prompt="Click the white king. The whole d-file is missing from its choices, because the black rook is watching it."></figure>
+
+      <h2>What is each piece worth?</h2>
+      <p>
+        Nobody counts points during a real game, but this table tells you whether a trade is a good deal.
+        If you can win a rook for a knight, you are ahead.
+      </p>
+
+      <ul class="value-list">
+        <li><span class="glyph" aria-hidden="true">&#9823;&#xFE0E;</span><span class="name">Pawn</span><span class="pts">1 point</span></li>
+        <li><span class="glyph" aria-hidden="true">&#9822;&#xFE0E;</span><span class="name">Knight</span><span class="pts">3 points</span></li>
+        <li><span class="glyph" aria-hidden="true">&#9821;&#xFE0E;</span><span class="name">Bishop</span><span class="pts">3 points</span></li>
+        <li><span class="glyph" aria-hidden="true">&#9820;&#xFE0E;</span><span class="name">Rook</span><span class="pts">5 points</span></li>
+        <li><span class="glyph" aria-hidden="true">&#9819;&#xFE0E;</span><span class="name">Queen</span><span class="pts">9 points</span></li>
+        <li><span class="glyph" aria-hidden="true">&#9818;&#xFE0E;</span><span class="name">King</span><span class="pts">the game</span></li>
+      </ul>
+
+      <div class="note rule">
+        <p><strong>Next up.</strong> There are three moves that do not follow the rules above at all:
+        castling, en passant and promotion. They are on the
+        <a href="special-rules.html">Special Rules</a> page.</p>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Move between lessons">
+        <span class="lesson-step empty" aria-hidden="true"></span>
+        <a class="lesson-step all" href="lessons.html">
+          <span aria-hidden="true">&#9776;</span>
+          <span class="step-title">All lessons</span>
+        </a>
+        <a class="lesson-step next" href="special-rules.html">
+          <span class="dir">Next <span aria-hidden="true">&rarr;</span></span>
+          <span class="step-num">Lesson 2</span>
+          <span class="step-title">Special rules</span>
+          <span class="step-sub">Castling, en passant and promotion</span>
+        </a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>JBW Chess Club &middot; J. B. Watkins Elementary School &middot; Built for our players and their families.</p>
+      <p>Privacy notice: this whole tutorial runs in your browser. Nothing you do here is sent anywhere.</p>
+    </footer>
+
+    <script type="module" src="assets/js/main.js"></script>
+  </body>
+</html>

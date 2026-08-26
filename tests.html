@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Engine self-check &middot; JBW Chess Club</title>
+    <meta name="description" content="Checks that the chess rules engine behind the JBW Chess Club site is correct." />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <link rel="stylesheet" href="assets/css/board.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%9E%3C/text%3E%3C/svg%3E" />
+    <style>
+      .result { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9rem; }
+      .result td:first-child { width: 4.5rem; font-weight: 700; }
+      .pass { color: var(--good); }
+      .fail { color: var(--bad); }
+      #summary { font-size: 1.2rem; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the results</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">&#9822;&#xFE0E;</span>
+          <span>
+            <strong>JBW Chess Club</strong>
+            <small>J. B. Watkins Elementary School</small>
+          </span>
+        </a>
+        <a class="header-link" href="lessons.html">
+          <span aria-hidden="true">&#9776;</span>
+          <span class="link-long">All lessons</span>
+          <span class="link-short">Lessons</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main" class="wide">
+      <h1>Engine self-check</h1>
+      <p class="lede">
+        Every board on this site is driven by one small chess engine. This page proves it knows the
+        rules, and that every lesson line and puzzle answer in the site's content is legal and correct.
+      </p>
+      <p id="summary">Running&hellip;</p>
+      <table class="result"><tbody id="out"></tbody></table>
+    </main>
+
+    <footer class="site-footer"><p>JBW Chess Club &middot; J. B. Watkins Elementary School</p></footer>
+
+    <script type="module">
+      import { Position, perft, playLine, moveToSan, parseSan, START_FEN } from "./assets/js/core/chess.js";
+      import { LESSONS, puzzles } from "./assets/data/lessons.js";
+
+      const out = document.getElementById("out");
+      let passed = 0, failed = 0;
+
+      function report(ok, name, detail = "") {
+        ok ? passed++ : failed++;
+        const tr = document.createElement("tr");
+        const status = document.createElement("td");
+        status.className = ok ? "pass" : "fail";
+        status.textContent = ok ? "PASS" : "FAIL";
+        const label = document.createElement("td");
+        label.textContent = name + (detail ? ": " + detail : "");
+        tr.append(status, label);
+        out.appendChild(tr);
+      }
+
+      // --- 1. Move generation, checked against the published perft counts ---
+      const PERFT = [
+        ["start position", START_FEN, [20, 400, 8902]],
+        ["castling / en passant / pins", "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1", [48, 2039]],
+        ["promotions and checks", "8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 1", [14, 191, 2812]],
+        ["under-promotion traps", "r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq - 0 1", [6, 264]],
+        ["a sharp middlegame", "rnbq1k1r/pp1Pbppp/2p5/8/2B5/8/PPP1NnPP/RNBQK2R w KQ - 1 8", [44, 1486]],
+      ];
+      for (const [name, fen, counts] of PERFT) {
+        const pos = Position.fromFen(fen);
+        counts.forEach((expected, i) => {
+          const got = perft(pos, i + 1);
+          report(got === expected, `perft: ${name}, depth ${i + 1}`, `${got} of ${expected} moves`);
+        });
+      }
+
+      // --- 2. Endings the engine has to recognise ---
+      const STATES = [
+        ["back-rank mate is mate", "R5k1/5ppp/8/8/8/8/5PPP/6K1 b - - 0 1", "checkmate"],
+        ["the classic stalemate", "7k/5Q2/6K1/8/8/8/8/8 b - - 0 1", "stalemate"],
+        ["a normal position is neither", START_FEN, "playable"],
+      ];
+      for (const [name, fen, expected] of STATES) {
+        const pos = Position.fromFen(fen);
+        const got = pos.isCheckmate() ? "checkmate" : pos.isStalemate() ? "stalemate" : "playable";
+        report(got === expected, `position state: ${name}`, got);
+      }
+
+      // --- 3. Notation survives a round trip ---
+      {
+        const line = "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Ba5 d4 exd4 O-O d3 Qb3 Qf6 e5 Qg6";
+        const steps = playLine(null, line);
+        const rebuilt = steps.slice(1).map((s) => s.san).join(" ");
+        report(rebuilt === line, "notation: read and write a whole game", rebuilt === line ? "18 moves" : rebuilt);
+      }
+
+      // --- 4. Every lesson on the site actually plays out ---
+      for (const [topic, group] of Object.entries(LESSONS)) {
+        if (topic === "puzzles") continue;
+        for (const [id, lesson] of Object.entries(group)) {
+          try {
+            const steps = playLine(lesson.fen, lesson.line);
+            const notesOk = !lesson.notes || lesson.notes.length === steps.length;
+            report(notesOk, `lesson: ${topic}/${id}`,
+              notesOk ? `${steps.length - 1} legal moves` : `${lesson.notes.length} notes for ${steps.length} positions`);
+          } catch (err) {
+            report(false, `lesson: ${topic}/${id}`, err.message);
+          }
+        }
+      }
+
+      // --- 5. No board starts from a position that could not happen ---
+      // A position where the side NOT to move is already in check is illegal:
+      // the previous move would have left its own king en prise. A lesson that
+      // opens with one teaches a board that could never appear in a real game.
+      {
+        const starts = [];
+        for (const [topic, group] of Object.entries(LESSONS)) {
+          if (topic === "puzzles") continue;
+          for (const [id, lesson] of Object.entries(group)) {
+            if (lesson.fen) starts.push([`${topic}/${id}`, lesson.fen]);
+          }
+        }
+        for (const puzzle of puzzles) starts.push([`puzzle ${puzzle.id}`, puzzle.fen]);
+
+        const bad = starts.filter(([, fen]) => {
+          const pos = Position.fromFen(fen);
+          return pos.isCheck(pos.turn === "w" ? "b" : "w");
+        });
+        report(bad.length === 0, "every starting position is legal",
+          bad.length ? bad.map(([name]) => name).join(", ") : `${starts.length} positions`);
+      }
+
+      // --- 6. Every puzzle answer really is the answer ---
+      function forcedMate(pos, moves) {
+        if (moves <= 0) return false;
+        for (const mv of pos.moves()) {
+          const after = pos.makeMove(mv);
+          if (after.isCheckmate()) return true;
+          if (moves === 1) continue;
+          const replies = after.moves();
+          if (!replies.length) continue;
+          if (replies.every((r) => forcedMate(after.makeMove(r), moves - 1))) return true;
+        }
+        return false;
+      }
+      const VALUE = { q: 9, r: 5, b: 3, n: 3, p: 1, k: 0 };
+      function material(pos, white) {
+        let sum = 0;
+        for (const p of pos.board) {
+          if (!p) continue;
+          if ((p === p.toUpperCase()) === white) sum += VALUE[p.toLowerCase()];
+        }
+        return sum;
+      }
+
+      // Every listed line has to work, and for the mate puzzles the list
+      // has to be complete: any forced mate the position allows must be
+      // in it, or the board will reject a move that is genuinely correct.
+      function matingFirstMoves(pos, want) {
+        const out = [];
+        for (const mv of pos.moves()) {
+          const after = pos.makeMove(mv);
+          if (after.isCheckmate()) {
+            if (want === 1) out.push(moveToSan(pos, mv));
+            continue;
+          }
+          if (want === 1) continue;
+          const replies = after.moves();
+          if (!replies.length) continue;
+          if (replies.every((r) => forcedMate(after.makeMove(r), want - 1))) {
+            out.push(moveToSan(pos, mv));
+          }
+        }
+        return out;
+      }
+      const bare = (san) => String(san).replace(/[+#!?]+$/, "");
+
+      for (const puzzle of puzzles) {
+        const start = Position.fromFen(puzzle.fen);
+        const heroIsWhite = start.turn === "w";
+        const want = puzzle.level === "mate1" ? 1 : puzzle.level === "mate2" ? 2 : null;
+        const lines = puzzle.solutions;
+
+        report(
+          Array.isArray(lines) && lines.length > 0,
+          `puzzle ${puzzle.id}: has a solutions list`,
+          `${Array.isArray(lines) ? lines.length : 0} line(s)`
+        );
+        if (!Array.isArray(lines) || !lines.length) continue;
+
+        lines.forEach((line, i) => {
+          const label = lines.length > 1 ? `line ${i + 1} of ${lines.length}` : "solution";
+          try {
+            const steps = playLine(puzzle.fen, line);
+            const end = steps[steps.length - 1].position;
+            if (want !== null) {
+              const shape = steps.length - 1 === want * 2 - 1;
+              const ok = shape && end.isCheckmate() && forcedMate(start, want);
+              report(ok, `puzzle ${puzzle.id}: ${label} is a forced mate in ${want}`, line);
+            } else {
+              const swing =
+                material(end, heroIsWhite) - material(start, heroIsWhite) -
+                (material(end, !heroIsWhite) - material(start, !heroIsWhite));
+              report(swing > 0, `puzzle ${puzzle.id}: ${label} wins material`,
+                `${line} (${swing > 0 ? "+" : ""}${swing})`);
+            }
+          } catch (err) {
+            report(false, `puzzle ${puzzle.id}: ${label}`, err.message);
+          }
+        });
+
+        // The player's first move is the one most likely to differ from
+        // ours, so check the list covers every winning first move.
+        if (want !== null) {
+          const every = matingFirstMoves(start, want);
+          const listed = lines.map((line) => bare(line.trim().split(/\s+/)[0]));
+          const missing = every.filter((m) => !listed.includes(bare(m)));
+          report(
+            missing.length === 0,
+            `puzzle ${puzzle.id}: every forced mate is listed`,
+            missing.length ? `missing ${missing.join(" ")}` : `${every.length} way(s) in, all listed`
+          );
+        }
+      }
+
+      const summary = document.getElementById("summary");
+      summary.textContent = failed
+        ? `${failed} check${failed === 1 ? "" : "s"} failed, ${passed} passed.`
+        : `All ${passed} checks passed.`;
+      summary.className = failed ? "fail" : "pass";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Special rules &middot; JBW Chess Club</title>
+    <meta name="description" content="Castling, en passant, promotion, check, checkmate, stalemate and the drawing rules, explained with interactive boards." />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <link rel="stylesheet" href="assets/css/board.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%9E%3C/text%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the lesson</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">&#9822;&#xFE0E;</span>
+          <span>
+            <strong>JBW Chess Club</strong>
+            <small>J. B. Watkins Elementary School</small>
+          </span>
+        </a>
+        <a class="header-link" href="lessons.html">
+          <span aria-hidden="true">&#9776;</span>
+          <span class="link-long">All lessons</span>
+          <span class="link-short">Lessons</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+      <p class="crumb">Lesson 2</p>
+      <h1>Special rules</h1>
+      <p class="lede">
+        Three moves break the normal rules on how pieces move.
+      </p>
+
+      <h2>Castling</h2>
+      <p>
+        Castling is the only move where <strong>two pieces move at once</strong>. The king travels two
+        squares toward a rook, and that rook jumps over to the other side of the king. It gets your
+        king to safety and brings a rook into the game in a single turn.
+      </p>
+
+      <figure data-widget="stepper" data-lesson="rules/castle-kingside"></figure>
+
+      <div class="note rule">
+        <p><strong>You may castle only if all four of these are true:</strong></p>
+        <ul class="checklist">
+          <li>Your king has <strong>never moved</strong> this game.</li>
+          <li>That rook has <strong>never moved</strong> this game.</li>
+          <li>All the squares <strong>between</strong> the king and the rook are empty.</li>
+          <li>Your king is <strong>not in check</strong>, and does not pass through or land on a square that is attacked.</li>
+        </ul>
+        <p>Being attacked does not stop the <em>rook</em> from travelling through a watched square. Only the king has that restriction.</p>
+      </div>
+
+      <figure data-widget="stepper" data-lesson="rules/castle-queenside"></figure>
+
+      <h2>En passant</h2>
+      <p>
+        This is the rule that very often starts arguments, so let us settle it: en passant is a real rule,
+        it is in the official rules, and it has been for over 500 years.
+      </p>
+
+      <figure data-widget="stepper" data-lesson="rules/en-passant"></figure>
+
+      <div class="note warn">
+        <p><strong>Use it or lose it.</strong> En passant must be played on the <em>very next move</em>.
+        If you play anything else first, the chance is gone for the rest of the game.</p>
+      </div>
+
+      <h2>Promotion</h2>
+      <p>
+        A pawn that reaches the far end of the board does not stop. It transforms. This is why
+        even a single extra pawn can win a game.
+      </p>
+
+      <figure data-widget="stepper" data-lesson="rules/promotion"></figure>
+
+      <h2>Check, checkmate and stalemate</h2>
+      <p>
+        When your king is attacked, that is <strong>check</strong>. You are not allowed to ignore it.
+        There are only three possible answers:
+      </p>
+      <ul class="checklist">
+        <li><strong>Move</strong> the king to a safe square.</li>
+        <li><strong>Block</strong> the attack by putting a piece in the way.</li>
+        <li><strong>Capture</strong> the piece that is giving check.</li>
+      </ul>
+      <p>
+        If none of those three is possible, that is <strong>checkmate</strong> and the game is over.
+      </p>
+
+      <figure data-widget="explorer" data-fen="4k3/3b4/8/8/8/2n5/4R3/4K3 b - - 0 1"
+              data-title="Three ways out of check"
+              data-prompt="Black is in check from the rook on e2. Click the king, the bishop and the knight in turn: the king can run, the bishop can block on e6, and the knight can capture on e2."></figure>
+
+      <div class="note warn">
+        <p><strong>Stalemate is a draw, not a win.</strong> If the player to move is <em>not</em> in check
+        but has no legal move at all, the game ends immediately in a draw, even if one side has a
+        queen and the other has nothing. Be careful not to throw away your win!</p>
+      </div>
+
+      <figure data-widget="stepper" data-lesson="rules/stalemate"></figure>
+      <figure data-widget="stepper" data-lesson="rules/stalemate-fixed"></figure>
+
+      <h2>The other ways a game can be drawn</h2>
+      <table>
+        <thead>
+          <tr><th>Draw</th><th>What it means</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Agreement</td><td>Both players simply agree to share the point.</td></tr>
+          <tr><td>Stalemate</td><td>No legal move, and not in check.</td></tr>
+          <tr><td>Threefold repetition</td><td>The same position happens three times with the same player to move.</td></tr>
+          <tr><td>Fifty-move rule</td><td>Fifty moves each with no capture and no pawn move.</td></tr>
+          <tr><td>Insufficient material</td><td>Nobody has enough pieces to force mate, such as king and bishop against king.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <p><strong>Scoring at club.</strong> A win is 1 point, a draw is &frac12; point, and a loss is 0.
+        A draw against a stronger player is a good day.</p>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Move between lessons">
+        <a class="lesson-step prev" href="pieces.html">
+          <span class="dir"><span aria-hidden="true">&larr;</span> Previous</span>
+          <span class="step-num">Lesson 1</span>
+          <span class="step-title">How the pieces move</span>
+          <span class="step-sub">Click a piece and watch its moves light up</span>
+        </a>
+        <a class="lesson-step all" href="lessons.html">
+          <span aria-hidden="true">&#9776;</span>
+          <span class="step-title">All lessons</span>
+        </a>
+        <a class="lesson-step next" href="notation.html">
+          <span class="dir">Next <span aria-hidden="true">&rarr;</span></span>
+          <span class="step-num">Lesson 3</span>
+          <span class="step-title">Reading and writing chess</span>
+          <span class="step-sub">Write your moves down, and club manners</span>
+        </a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>JBW Chess Club &middot; J. B. Watkins Elementary School &middot; Built for our players and their families.</p>
+      <p>Privacy notice: this whole tutorial runs in your browser. Nothing you do here is sent anywhere.</p>
+    </footer>
+
+    <script type="module" src="assets/js/main.js"></script>
+  </body>
+</html>

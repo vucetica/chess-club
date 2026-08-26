@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notation and etiquette &middot; JBW Chess Club</title>
+    <meta name="description" content="How to read and write chess notation, plus the etiquette every club and tournament player is expected to know." />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <link rel="stylesheet" href="assets/css/board.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%9E%3C/text%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the lesson</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">&#9822;&#xFE0E;</span>
+          <span>
+            <strong>JBW Chess Club</strong>
+            <small>J. B. Watkins Elementary School</small>
+          </span>
+        </a>
+        <a class="header-link" href="lessons.html">
+          <span aria-hidden="true">&#9776;</span>
+          <span class="link-long">All lessons</span>
+          <span class="link-short">Lessons</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+      <p class="crumb">Lesson 3</p>
+      <h1>Reading and writing chess</h1>
+      <p class="lede">
+        Chess has its own alphabet. Once you can read it, every chess book, every puzzle and every
+        game in history is open to you, and you can write down your own games to look at later.
+      </p>
+
+      <h2>Every square has a name</h2>
+      <p>
+        Files (up and down) are letters <code>a</code> to <code>h</code>, starting from White's left.
+        Ranks (across) are numbers <code>1</code> to <code>8</code>, starting from White's side.
+        The letter always comes first: <code>e4</code>, never <code>4e</code>.
+      </p>
+
+      <figure data-widget="explorer" data-title="Name that square" data-squares="true"
+              data-prompt="Click any square and read its name in this sentence. Try to find g7, then b1, then d5."></figure>
+
+      <h2>Every piece has a letter</h2>
+      <table>
+        <thead><tr><th>Piece</th><th>Letter</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>King</td><td><code>K</code></td><td><code>Ke2</code>: king moves to e2</td></tr>
+          <tr><td>Queen</td><td><code>Q</code></td><td><code>Qh5</code>: queen moves to h5</td></tr>
+          <tr><td>Rook</td><td><code>R</code></td><td><code>Rd1</code>: rook moves to d1</td></tr>
+          <tr><td>Bishop</td><td><code>B</code></td><td><code>Bc4</code>: bishop moves to c4</td></tr>
+          <tr><td>Knight</td><td><code>N</code></td><td><code>Nf3</code>: knight moves to f3</td></tr>
+          <tr><td>Pawn</td><td>(nothing)</td><td><code>e4</code>: a pawn moves to e4</td></tr>
+        </tbody>
+      </table>
+      <div class="note">
+        <p><strong>Why is the knight an N?</strong> Because <code>K</code> was already taken by the king.
+        The knight got the second letter of its name instead.</p>
+      </div>
+
+      <h2>The extra symbols</h2>
+      <table>
+        <thead><tr><th>Symbol</th><th>Meaning</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><code>x</code></td><td>captures</td><td><code>Bxc6</code>, and for pawns <code>exd5</code></td></tr>
+          <tr><td><code>+</code></td><td>check</td><td><code>Qa4+</code></td></tr>
+          <tr><td><code>#</code></td><td>checkmate</td><td><code>Qxf7#</code></td></tr>
+          <tr><td><code>O-O</code></td><td>castles kingside</td><td>two letter O's</td></tr>
+          <tr><td><code>O-O-O</code></td><td>castles queenside</td><td>three letter O's</td></tr>
+          <tr><td><code>=Q</code></td><td>promotes to a queen</td><td><code>e8=Q</code></td></tr>
+          <tr><td><code>!</code> and <code>?</code></td><td>a great move / a mistake</td><td><code>Nd5!</code>, <code>Qh5??</code></td></tr>
+        </tbody>
+      </table>
+      <p>
+        When two identical pieces could both go to the same square, add where the piece came from:
+        <code>Nbd2</code> means "the knight on the b-file goes to d2", and <code>R1e2</code> means
+        "the rook on the first rank goes to e2".
+      </p>
+
+      <h2>A whole game on one line</h2>
+      <p>
+        Here is a real (short!) game written in notation, next to the board it produces.
+        Press <em>Next</em> and follow along on the scoresheet.
+      </p>
+
+      <table>
+        <thead><tr><th>#</th><th>White</th><th>Black</th></tr></thead>
+        <tbody>
+          <tr><td>1.</td><td><code>e4</code></td><td><code>e5</code></td></tr>
+          <tr><td>2.</td><td><code>Bc4</code></td><td><code>Nc6</code></td></tr>
+          <tr><td>3.</td><td><code>Qh5</code></td><td><code>Nf6??</code></td></tr>
+          <tr><td>4.</td><td><code>Qxf7#</code></td><td>1&ndash;0</td></tr>
+        </tbody>
+      </table>
+      <p>
+        The <code>1&ndash;0</code> at the end means White won. <code>0&ndash;1</code> means Black won,
+        and <code>&frac12;&ndash;&frac12;</code> means a draw.
+      </p>
+
+      <figure data-widget="stepper" data-lesson="checkmates/scholars" data-title="The same game on the board"></figure>
+
+      <h2>Behaving well at the board</h2>
+      <p>
+        Chess players have looked after each other's games for hundreds of years. These are the rules
+        of the club, and they are also the rules of every tournament you will ever play in.
+      </p>
+
+      <ul class="checklist">
+        <li><strong>Shake hands</strong> before and after every game. Say "good game" whether you won or lost.</li>
+        <li><strong>Touch-move.</strong> If you touch one of your pieces, you must move it if there is a legal move. If you let go of it on a square, the move is finished.</li>
+        <li><strong>Say "I adjust"</strong> <em>before</em> you straighten a piece on its square, so nobody thinks you are moving it. You should not adjust your pieces or mess with the board while it is your opponent's time to play.</li>
+        <li><strong>Stay quiet.</strong> No talking about the game, no advice from watchers, no sound effects.</li>
+        <li><strong>Do not gloat and do not sulk.</strong> Everyone loses games. What people remember is how you handled it.</li>
+        <li><strong>Resigning is allowed</strong> when the game is truly lost, and it is polite. But at your level, play on: opponents drop pieces and stalemate happens.</li>
+        <li><strong>If something goes wrong</strong> (an illegal move, a knocked-over piece, a disagreement), stop, do not argue, and raise your hand for an adult.</li>
+      </ul>
+
+      <div class="note rule">
+        <p><strong>Clocks.</strong> We do not use them at club, so take the time you need to think.
+        You will meet one in a tournament: press it with the <em>same hand</em> you moved with, right
+        after your move. If your flag falls and your opponent still has enough pieces to checkmate,
+        you lose on time.</p>
+      </div>
+
+      <h2>Write down your own games</h2>
+      <p>
+        Feel free to bring a notebook to club. Writing your moves down takes a few seconds each turn and gives you the ability to look at your own game afterwards and find the exact move
+        where things went wrong. Every strong player in the world does this.
+      </p>
+
+      <nav class="lesson-nav" aria-label="Move between lessons">
+        <a class="lesson-step prev" href="special-rules.html">
+          <span class="dir"><span aria-hidden="true">&larr;</span> Previous</span>
+          <span class="step-num">Lesson 2</span>
+          <span class="step-title">Special rules</span>
+          <span class="step-sub">Castling, en passant and promotion</span>
+        </a>
+        <a class="lesson-step all" href="lessons.html">
+          <span aria-hidden="true">&#9776;</span>
+          <span class="step-title">All lessons</span>
+        </a>
+        <a class="lesson-step next" href="checkmates.html">
+          <span class="dir">Next <span aria-hidden="true">&rarr;</span></span>
+          <span class="step-num">Lesson 4</span>
+          <span class="step-title">Basic checkmates</span>
+          <span class="step-sub">Back-rank, the ladder, smothered mate</span>
+        </a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>JBW Chess Club &middot; J. B. Watkins Elementary School &middot; Built for our players and their families.</p>
+      <p>Privacy notice: this whole tutorial runs in your browser. Nothing you do here is sent anywhere.</p>
+    </footer>
+
+    <script type="module" src="assets/js/main.js"></script>
+  </body>
+</html>

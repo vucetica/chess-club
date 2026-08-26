@@ -1,0 +1,289 @@
+/* ============================================================
+   board.css: the chessboard and the widgets wrapped around it
+   ============================================================ */
+
+.board {
+  width: 100%;
+  max-width: var(--board-max, 30rem);
+  aspect-ratio: 1 / 1;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  container-type: inline-size;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18), 0 10px 24px -12px rgba(0, 0, 0, 0.5);
+  border: 3px solid var(--board-frame);
+  background: var(--sq-dark);
+  touch-action: manipulation;
+}
+
+.sq {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.sq.light { background: var(--sq-light); }
+.sq.dark  { background: var(--sq-dark); }
+.sq.static { cursor: default; }
+
+.sq:focus-visible {
+  outline: 3px solid var(--focus-board);
+  outline-offset: -3px;
+  z-index: 4;
+}
+
+/* --- pieces ------------------------------------------------ */
+
+.pc {
+  font-family: var(--font-chess);
+  font-size: 2rem;                 /* fallback for old browsers */
+  font-size: 10.5cqw;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  transition: transform 260ms cubic-bezier(0.22, 0.7, 0.3, 1);
+  will-change: transform;
+  z-index: 2;
+  /* Draw the outline BEHIND the fill. Without this the dark stroke eats
+     into the white pieces and both armies end up looking black. */
+  paint-order: stroke fill;
+}
+.pc.white {
+  color: #fff;
+  -webkit-text-stroke: 0.045em #2a2724;
+  text-shadow: 0 0.03em 0.02em rgba(0, 0, 0, 0.4);
+}
+.pc.black {
+  color: #2a2724;
+  -webkit-text-stroke: 0.02em #14120f;
+  text-shadow: 0 0.03em 0.02em rgba(255, 255, 255, 0.18);
+}
+
+/* --- coordinates ------------------------------------------- */
+
+.coord {
+  position: absolute;
+  font-size: 0.6rem;
+  font-size: 3cqw;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: 3;
+}
+.coord-file { bottom: 4%; right: 6%; }
+.coord-rank { top: 4%; left: 6%; }
+.sq.light .coord { color: var(--sq-dark); }
+.sq.dark .coord { color: var(--sq-light); }
+
+/* --- highlights -------------------------------------------- */
+
+/* A quiet move: a dot in the middle of the square. */
+.sq.is-move::after {
+  content: "";
+  position: absolute;
+  inset: 36%;
+  border-radius: 50%;
+  background: rgba(20, 106, 70, 0.62);
+  z-index: 1;
+}
+/* A capture: a ring around the piece you can take. */
+.sq.is-capture::after {
+  content: "";
+  position: absolute;
+  inset: 4%;
+  border-radius: 50%;
+  border: 0.42em solid rgba(184, 58, 43, 0.55);
+  box-sizing: border-box;
+  z-index: 1;
+}
+.sq.light.is-last { background: var(--sq-light-mark); }
+.sq.dark.is-last  { background: var(--sq-dark-mark); }
+.sq.light.is-selected { background: var(--sq-light-pick); }
+.sq.dark.is-selected  { background: var(--sq-dark-pick); }
+.sq.is-good     { box-shadow: inset 0 0 0 100vmax rgba(46, 168, 108, 0.55); }
+.sq.is-bad      { box-shadow: inset 0 0 0 100vmax rgba(200, 66, 50, 0.5); }
+.sq.is-check::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(220, 60, 45, 0.85) 12%, rgba(220, 60, 45, 0) 72%);
+  z-index: 1;
+}
+.sq.is-hint {
+  animation: hint-pulse 1.1s ease-in-out infinite;
+}
+@keyframes hint-pulse {
+  0%, 100% { box-shadow: inset 0 0 0 0.35em rgba(5, 18, 46, 0); }
+  50%      { box-shadow: inset 0 0 0 0.35em rgba(5, 18, 46, 0.85); }
+}
+
+.board.shake { animation: board-shake 380ms ease; }
+@keyframes board-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pc { transition: none; }
+  .board.shake { animation: none; }
+  .sq.is-hint { animation: none; box-shadow: inset 0 0 0 0.35em rgba(5, 18, 46, 0.85); }
+}
+
+/* ============================================================
+   Widget chrome: board on the left, words and buttons beside it
+   ============================================================ */
+
+.board-widget {
+  margin: 1.75rem 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  display: grid;
+  gap: 1rem 1.25rem;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+@media (min-width: 46rem) {
+  .board-widget { grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); }
+}
+
+.board-widget > figcaption {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--accent);
+  margin-bottom: -0.25rem;
+}
+
+/* Marks a puzzle the player has already cracked. */
+.solved-badge {
+  margin-left: auto;
+  flex: none;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--on-good);
+  background: var(--good);
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem 0.2rem;
+}
+.solved-badge::before {
+  content: "\2713\00a0";
+}
+.solved-badge[hidden] { display: none; }
+
+.board-widget.is-solved {
+  border-color: var(--good);
+  box-shadow: inset 0.28rem 0 0 var(--good);
+}
+
+.board-side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.board-status {
+  margin: 0;
+  min-height: 3.2em;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.board-status .tag {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--accent);
+}
+.board-status.good { color: var(--good); font-weight: 600; }
+.board-status.bad  { color: var(--bad); font-weight: 600; }
+
+.board-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.btn {
+  /* Set the family here rather than with `font: inherit`, which would
+     undo the interface typeface site.css gives buttons. */
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  min-height: 2.75rem;
+  transition: background 120ms ease, transform 80ms ease;
+}
+.btn:hover { background: var(--hover); }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: 0.4; cursor: default; }
+.btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.btn.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.btn.primary:hover { background: var(--accent-dark); }
+
+.move-list {
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.5rem;
+  background: var(--paper);
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  max-height: 9rem;
+  overflow-y: auto;
+}
+.move-list li { padding: 0.1rem 0.3rem; border-radius: 5px; }
+.move-list li.num { opacity: 0.55; }
+.move-list li.current { background: var(--accent); color: var(--on-accent); font-weight: 700; }
+
+.board-legend {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.board-goal {
+  margin: 0;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.progress {
+  height: 0.6rem;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+.progress > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 300ms ease;
+}

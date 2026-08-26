@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Strategy and tactics &middot; JBW Chess Club</title>
+    <meta name="description" content="Forks, pins, skewers, discovered attacks and double check, plus the strategy ideas behind good chess moves." />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <link rel="stylesheet" href="assets/css/board.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%99%9E%3C/text%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the lesson</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">&#9822;&#xFE0E;</span>
+          <span>
+            <strong>JBW Chess Club</strong>
+            <small>J. B. Watkins Elementary School</small>
+          </span>
+        </a>
+        <a class="header-link" href="lessons.html">
+          <span aria-hidden="true">&#9776;</span>
+          <span class="link-long">All lessons</span>
+          <span class="link-short">Lessons</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+      <p class="crumb">Lesson 6</p>
+      <h1>Strategy and tactics</h1>
+      <p class="lede">
+        <strong>Tactics</strong> are short tricks that win something right now. <strong>Strategy</strong>
+        is the slow plan that makes those tricks appear. Beginners win games with tactics, so we start there.
+      </p>
+
+      <h2>Before every single move</h2>
+      <div class="note rule">
+        <p>Ask these three questions:</p>
+        <ol>
+          <li><strong>Why did my opponent play that move?</strong> What are they attacking?</li>
+          <li><strong>What is not defended?</strong> Check every piece of theirs, and every piece of yours.</li>
+          <li><strong>Do I have a check, a capture or a threat?</strong> Look at those first.</li>
+        </ol>
+      </div>
+
+      <h2>The fork</h2>
+      <p>
+        One piece, two targets. Your opponent can only save one of them. Knights are the best forkers
+        in chess because their moves are the hardest to see coming.
+      </p>
+      <figure data-widget="stepper" data-lesson="tactics/fork"></figure>
+
+      <h2>The pin</h2>
+      <p>
+        A pin freezes a piece by putting something more valuable behind it. Then you attack the frozen
+        piece again and again, because it cannot run away.
+      </p>
+      <figure data-widget="stepper" data-lesson="tactics/pin"></figure>
+
+      <p>
+        When the piece behind is the <strong>king</strong>, the pinned piece may not move at all. That is an <strong>absolute pin</strong>. Click the black knight below and see for yourself.
+      </p>
+      <figure data-widget="explorer" data-fen="4k3/8/4n3/8/8/8/8/4R1K1 b - - 0 1"
+              data-title="An absolutely pinned knight"
+              data-prompt="Click the black knight. Nothing lights up: any move would leave its own king in check, and that is never legal."></figure>
+
+      <h2>The skewer</h2>
+      <p>
+        A pin turned back to front. The valuable piece is in front, it has to move, and you capture
+        whatever was hiding behind it.
+      </p>
+      <figure data-widget="stepper" data-lesson="tactics/skewer"></figure>
+
+      <h2>The discovered attack</h2>
+      <p>
+        One piece moves out of the way and <em>uncovers</em> an attack from the piece behind it, while making a threat of its own. Two threats, one move, and your opponent can only answer one.
+      </p>
+      <figure data-widget="stepper" data-lesson="tactics/discovered-attack"></figure>
+
+      <h2>Double check</h2>
+      <p>
+        The most forcing move in all of chess. Two pieces give check at once, so blocking and capturing
+        are both useless: no single move can stop two checks. The king <em>must</em> move.
+      </p>
+      <figure data-widget="stepper" data-lesson="tactics/double-check"></figure>
+
+      <h2>Removing the defender</h2>
+      <p>
+        Before you accept that a square is protected, ask who is protecting it, and whether you
+        can take that piece, chase it away, or make it do two jobs at once.
+      </p>
+      <figure data-widget="stepper" data-lesson="tactics/removing-the-defender"></figure>
+
+      <h2>Now for the strategy</h2>
+
+      <h3>Control the centre</h3>
+      <p>
+        The four squares <code>d4</code>, <code>e4</code>, <code>d5</code> and <code>e5</code> are the
+        high ground. A knight on <code>e5</code> attacks eight squares; the same knight on <code>a1</code>
+        attacks two. Pieces in the centre are simply worth more.
+      </p>
+
+      <h3>Keep your pieces active</h3>
+      <p>
+        Count how many squares each of your pieces can reach. If a bishop is staring at its own pawn,
+        it is not really playing. Good players spend whole moves improving their worst piece.
+      </p>
+
+      <h3>Look after your king</h3>
+      <p>
+        Castle early. Do not push the pawns in front of your castled king without a reason, because
+        each one you push leaves a hole that a queen or bishop can crawl into.
+      </p>
+
+      <h3>Pawns cannot go backwards</h3>
+      <p>
+        Every pawn move is permanent, so think twice before making one. Three shapes to know:
+      </p>
+      <table>
+        <thead><tr><th>Shape</th><th>What it is</th><th>Good or bad?</th></tr></thead>
+        <tbody>
+          <tr><td>Doubled pawns</td><td>Two of your pawns on the same file</td><td>Usually a small weakness, because they cannot defend each other</td></tr>
+          <tr><td>Isolated pawn</td><td>No friendly pawn on either side of it</td><td>Needs pieces to babysit it, but it does control good squares</td></tr>
+          <tr><td>Passed pawn</td><td>No enemy pawn can stop it reaching the end</td><td>Excellent, and it wins endgames</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Trade when you are ahead</h3>
+      <p>
+        If you are a rook up, swap pieces at every fair opportunity. Each trade makes your extra rook
+        a bigger share of what is left on the board. If you are behind, do the opposite: keep pieces on
+        and keep the position complicated.
+      </p>
+
+      <div class="note">
+        <p><strong>Practise the tactics.</strong> The <a href="puzzles.html">puzzles page</a> has forks,
+        pins, skewers and discovered attacks.</p>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Move between lessons">
+        <a class="lesson-step prev" href="openings.html">
+          <span class="dir"><span aria-hidden="true">&larr;</span> Previous</span>
+          <span class="step-num">Lesson 5</span>
+          <span class="step-title">Openings</span>
+          <span class="step-sub">The first ten moves</span>
+        </a>
+        <a class="lesson-step all" href="lessons.html">
+          <span aria-hidden="true">&#9776;</span>
+          <span class="step-title">All lessons</span>
+        </a>
+        <a class="lesson-step next" href="endgames.html">
+          <span class="dir">Next <span aria-hidden="true">&rarr;</span></span>
+          <span class="step-num">Lesson 7</span>
+          <span class="step-title">Endgame basics</span>
+          <span class="step-sub">The opposition and the square of the pawn</span>
+        </a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <p>JBW Chess Club &middot; J. B. Watkins Elementary School &middot; Built for our players and their families.</p>
+      <p>Privacy notice: this whole tutorial runs in your browser. Nothing you do here is sent anywhere.</p>
+    </footer>
+
+    <script type="module" src="assets/js/main.js"></script>
+  </body>
+</html>

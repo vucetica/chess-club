@@ -1,0 +1,183 @@
+// Opening walkthroughs. Each one is a line of moves plus a short
+// note for every move, written for a 3rd grader who has just
+// learned how the pieces move.
+
+export const openings = {
+  "good-start": {
+    title: "A good opening, move by move",
+    line: "e4 e5 Nf3 Nc6 Bc4 Bc5 O-O Nf6 d3 d6",
+    notes: [
+      "Watch both players follow the three opening rules: take the centre, wake up your pieces, tuck the king away.",
+      "1. e4: White's pawn marches to the middle and grabs space.",
+      "1... e5: Black copies. Neither player is letting the other own the centre.",
+      "2. Nf3: A knight jumps out and attacks the e5 pawn. Knights before bishops.",
+      "2... Nc6: Black defends the pawn and develops at the same time. Two jobs, one move.",
+      "3. Bc4: The bishop comes out and stares at f7, the square only the black king defends.",
+      "3... Bc5: Black's bishop does exactly the same thing, aiming at f2.",
+      "4. O-O: Castling! The king hides in the corner and the rook joins the game.",
+      "4... Nf6: The last knight develops and eyes the e4 pawn.",
+      "5. d3: A small pawn move that protects e4 and opens a path for the last bishop.",
+      "5... d6: Black does the same. Both sides have played a healthy opening: pawns in the centre, pieces out, king safe.",
+    ],
+  },
+
+  italian: {
+    title: "The Italian Game",
+    line: "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4",
+    notes: [
+      "The Italian Game is the oldest opening we still play, and the friendliest one to learn first.",
+      "1. e4: Straight into the centre.",
+      "1... e5: Black stakes the same claim.",
+      "2. Nf3: Attacking e5 right away.",
+      "2... Nc6: Defending it.",
+      "3. Bc4: This is the Italian bishop. It points at f7 like an arrow.",
+      "3... Bc5: The mirror move. This line is called the Giuoco Piano, which means 'the quiet game'.",
+      "4. c3: A sneaky pawn move preparing to build a big centre with d4.",
+      "4... Nf6: Black hurries a knight out and attacks e4.",
+      "5. d4: There it is: two White pawns side by side in the middle. The game is about to get lively.",
+    ],
+  },
+
+  "ruy-lopez": {
+    title: "The Ruy Lopez (Spanish Opening)",
+    line: "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O",
+    notes: [
+      "Named after a Spanish priest who wrote about it in 1561. Grandmasters still play it every single week.",
+      "1. e4",
+      "1... e5",
+      "2. Nf3: Attack the pawn.",
+      "2... Nc6: Defend the pawn.",
+      "3. Bb5: Instead of aiming at f7, the bishop attacks the knight that is doing all the defending.",
+      "3... a6: Black asks the bishop a question: are you taking, or are you moving?",
+      "4. Ba4: It keeps the pin alive and slides back along the diagonal.",
+      "4... Nf6: Develop and counter-attack e4.",
+      "5. O-O: Castle first. Black can grab the pawn with Nxe4, which is a real opening called the Open Ruy Lopez, and White answers d4 for a big centre. Otherwise Re1 comes next and the rook watches the e-file.",
+    ],
+  },
+
+  scotch: {
+    title: "The Scotch Game",
+    line: "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bc5 Be3",
+    notes: [
+      "The Scotch opens the position immediately. Good if you like your pieces flying around early.",
+      "1. e4",
+      "1... e5",
+      "2. Nf3",
+      "2... Nc6",
+      "3. d4: Boom. White challenges the e5 pawn with a second pawn.",
+      "3... exd4: Black takes.",
+      "4. Nxd4: And White takes back with the knight, which now stands proudly in the centre.",
+      "4... Bc5: Black attacks the knight with a developing move.",
+      "5. Be3: White defends the knight and develops. Every move is doing two jobs.",
+    ],
+  },
+
+  "queens-gambit": {
+    title: "The Queen's Gambit",
+    line: "d4 d5 c4 e6 Nc3 Nf6 Bg5 Be7 e3",
+    notes: [
+      "A gambit means offering a pawn. This one is special: if Black takes it, White can usually win it straight back.",
+      "1. d4: The other great first move. This pawn is defended by the queen from move one.",
+      "1... d5: Black blocks the centre.",
+      "2. c4: The gambit. White offers the c-pawn to pull Black's d5 pawn away from the middle.",
+      "2... e6: Black politely declines and opens a road for the dark-squared bishop.",
+      "3. Nc3: Adding a third attacker to d5.",
+      "3... Nf6: Adding a second defender.",
+      "4. Bg5: Pinning the knight against the queen.",
+      "4... Be7: Unpinning by protecting the knight with the bishop.",
+      "5. e3: Solid. White will develop the last bishop and castle next. This is one of the most-played positions in chess history.",
+    ],
+  },
+
+  london: {
+    title: "The London System",
+    line: "d4 d5 Bf4 Nf6 e3 e6 Nf3 c5 c3 Nc6 Nbd2 Bd6 Bg3",
+    notes: [
+      "The London is a setup, not a memory test. White plays almost the same moves no matter what Black does, which is perfect for club players.",
+      "1. d4",
+      "1... d5",
+      "2. Bf4: Get the bishop OUTSIDE the pawn chain before playing e3. That is the whole trick of the London.",
+      "2... Nf6",
+      "3. e3: Now the pawn comes up. The bishop is already safely outside.",
+      "3... e6",
+      "4. Nf3: Knight to its best square.",
+      "4... c5: Black hits the centre.",
+      "5. c3: A little wall so d4 never falls.",
+      "5... Nc6",
+      "6. Nbd2: The other knight tucks in behind. White's pieces make a neat pyramid.",
+      "6... Bd6: Black offers a bishop trade.",
+      "7. Bg3: No thanks. The bishop steps back and keeps its diagonal. White will castle next and has a comfortable game.",
+    ],
+  },
+
+  sicilian: {
+    title: "The Sicilian Defence",
+    line: "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6",
+    notes: [
+      "The most popular answer to 1. e4 in the whole world. Black refuses to copy White and fights for the centre sideways.",
+      "1. e4",
+      "1... c5: The Sicilian. Black does not play e5; the c-pawn will trade itself for White's d-pawn instead.",
+      "2. Nf3",
+      "2... d6: Making room for the plan and covering e5.",
+      "3. d4: White opens the centre.",
+      "3... cxd4: The Sicilian trade: a wing pawn for a centre pawn. Black is happy with that deal.",
+      "4. Nxd4",
+      "4... Nf6: Attacking e4 and forcing White to defend it.",
+      "5. Nc3: Defending e4 with a developing move.",
+      "5... a6: The Najdorf Variation. A tiny move with a big idea: no White piece may ever use b5.",
+    ],
+  },
+
+  french: {
+    title: "The French Defence",
+    line: "e4 e6 d4 d5 Nc3 Nf6 e5 Nfd7 f4",
+    notes: [
+      "The French is a fortress. Black builds a wall of pawns and waits for a chance to knock White's centre down.",
+      "1. e4",
+      "1... e6: Quiet, but it prepares d5 next move with support.",
+      "2. d4: White happily builds a big centre.",
+      "2... d5: There it is. Black challenges e4 straight away.",
+      "3. Nc3: Defending the e4 pawn.",
+      "3... Nf6: Attacking it again.",
+      "4. e5: White pushes past and gains space. The centre locks up.",
+      "4... Nfd7: The knight steps back to help attack the d4 pawn later with c5.",
+      "5. f4: White builds a big pawn wall. One warning: the French leaves Black's light-squared bishop stuck behind the e6 pawn. Finding a job for that bishop is Black's whole plan.",
+    ],
+  },
+
+  "caro-kann": {
+    title: "The Caro-Kann Defence",
+    line: "e4 c6 d4 d5 Nc3 dxe4 Nxe4 Bf5 Ng3 Bg6",
+    notes: [
+      "Like the French, but Black solves the bishop problem first. Very solid, very hard to beat.",
+      "1. e4",
+      "1... c6: Preparing d5 with the c-pawn instead of the e-pawn.",
+      "2. d4",
+      "2... d5: The same challenge as the French.",
+      "3. Nc3: Defending e4.",
+      "3... dxe4: Black trades in the centre.",
+      "4. Nxe4",
+      "4... Bf5: Here is the difference. The light-squared bishop gets OUT before the pawns lock it in.",
+      "5. Ng3: Chasing the bishop.",
+      "5... Bg6: It steps aside and stays useful. Black has no bad pieces and a rock-solid position.",
+    ],
+  },
+
+  "queen-out-early": {
+    title: "What happens if you rush the queen out",
+    line: "e4 e5 Qh5 Nc6 Bc4 g6 Qf3 Nf6 Qb3 Nd4",
+    notes: [
+      "Beginners love bringing the queen out on move two. Here is why stronger players do not.",
+      "1. e4",
+      "1... e5",
+      "2. Qh5: White threatens Qxe5+ and Qxf7#. Scary! But the queen is now a target.",
+      "2... Nc6: Black defends e5 and develops. Threat handled.",
+      "3. Bc4: Now White really does threaten Qxf7#.",
+      "3... g6: Black kicks the queen and blocks the mate.",
+      "4. Qf3: Still hunting f7.",
+      "4... Nf6: Another defender arrives, developing again.",
+      "5. Qb3: The queen has now moved four times.",
+      "5... Nd4: Count the pieces: Black has two knights out and White has moved the queen four times and developed one bishop. Black is winning the opening easily. The queen is strong, but she should come out last, not first.",
+    ],
+  },
+};

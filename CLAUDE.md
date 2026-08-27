@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A static site that teaches chess to the JBW Chess Club at J. B. Watkins Elementary School.
+A static site that teaches chess to the JBW Chess Club, run by the JBW Elementary School PTA.
 It is published on GitHub Pages. Audience is grades 2 to 5.
 
 ## Hard constraints

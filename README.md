@@ -1,6 +1,6 @@
 # JBW Chess Club
 
-The learning site for the chess club at **J. B. Watkins Elementary School**.
+The learning site for the chess club run by the **JBW Elementary School PTA**.
 
 It is a static site: plain HTML, CSS and JavaScript with no build step, no dependencies and no
 server. Every chessboard on the site is interactive and runs entirely in the visitor's browser.

@@ -26,6 +26,13 @@ export function createExplorer(host, config = {}) {
   let selected = null;
   let legal = [];
 
+  // Boards that show a whole game position take turns properly: you may
+  // still light up either army, but only the side to move may actually
+  // play. The single-piece boards on "How the pieces move" leave this off,
+  // because there the point is to push one knight around all afternoon.
+  const strictTurns = !!config.turns;
+  const sideWord = (color) => (color === "w" ? "White" : "Black");
+
   const idle = config.prompt || "Click any piece to light up its moves.";
 
   function refresh(animation) {
@@ -71,14 +78,19 @@ export function createExplorer(host, config = {}) {
     }
 
     const word = PIECE_WORD[typeOf(piece)];
-    const side = colorOf(piece) === "w" ? "White" : "Black";
+    const side = sideWord(colorOf(piece));
+    const waiting =
+      strictTurns && colorOf(piece) !== position.turn
+        ? ` It is ${sideWord(position.turn)}'s turn, so this one has to wait.`
+        : "";
     if (!seen.size) {
       say(`The ${side.toLowerCase()} ${word} on ${squareName(sq)} has no legal moves right now.`);
     } else {
       const captures = legal.filter((m) => m.captured).length;
       say(
         `${side} ${word} on ${squareName(sq)}: ${seen.size} square${seen.size === 1 ? "" : "s"} to choose from` +
-          (captures ? `, including ${captures} capture${captures === 1 ? "" : "s"}.` : ".")
+          (captures ? `, including ${captures} capture${captures === 1 ? "" : "s"}.` : ".") +
+          waiting
       );
     }
   }
@@ -102,6 +114,12 @@ export function createExplorer(host, config = {}) {
       const move = legal.find((m) => m.to === sq && (!m.promotion || m.promotion === "q"));
       if (move) {
         const piece = position.board[move.from];
+        if (strictTurns && colorOf(piece) !== position.turn) {
+          // The dots stay lit, so the next click can pick the right piece.
+          const mover = sideWord(position.turn);
+          say(`Not yet: it is ${mover}'s turn. Click a ${mover.toLowerCase()} piece.`, "bad");
+          return;
+        }
         const from = move.from;
         // Explorer boards always promote to a queen; the promotion
         // menu belongs on the Special Rules page, not here.

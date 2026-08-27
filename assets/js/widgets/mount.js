@@ -43,6 +43,7 @@ export function mountWidgets(root = document) {
       ...(host.dataset.legend ? { legend: host.dataset.legend } : {}),
       ...(host.dataset.flipped ? { flipped: host.dataset.flipped === "true" } : {}),
       ...(host.dataset.squares ? { squares: host.dataset.squares === "true" } : {}),
+      ...(host.dataset.turns ? { turns: host.dataset.turns === "true" } : {}),
     };
     if (host.dataset.title === "") config.title = null;
 

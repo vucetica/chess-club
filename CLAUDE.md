@@ -90,7 +90,10 @@ caption.
 
 **The three widgets:** *explorer* highlights a clicked piece's legal moves (and will happily
 generate for whichever side you click, not just the side to move, so a learner can poke at both
-armies). *stepper* walks a move list with a note per move. *puzzle* checks a played move against the
+armies). Whether it will also *play* an out-of-turn move depends on `data-turns="true"`: boards
+showing a whole game position set it and then only the side to move may move, while the
+single-piece boards on "How the pieces move" leave it off, because there the point is to push one
+knight around all afternoon. *stepper* walks a move list with a note per move. *puzzle* checks a played move against the
 stored solutions, and also accepts any move that simply delivers mate.
 
 A puzzle position can have more than one right answer, so `solutions` is a **list of complete

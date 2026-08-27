@@ -51,7 +51,11 @@
   user-select: none;
   pointer-events: none;
   transition: transform 260ms cubic-bezier(0.22, 0.7, 0.3, 1);
-  will-change: transform;
+  /* No will-change here. It looks like a free hint, but it pins a GPU
+     layer per piece for the life of the page: 64 squares times up to 15
+     boards is ~960 permanent backing stores, which is enough for Safari
+     to reload the tab for "using significant memory". The slide is one
+     short transform and gets its layer on demand. */
   z-index: 2;
   /* Draw the outline BEHIND the fill. Without this the dark stroke eats
      into the white pieces and both armies end up looking black. */

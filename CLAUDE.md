@@ -29,6 +29,11 @@ python3 -m http.server 8000     # then open http://localhost:8000/
 
 A server is required. ES modules do not load over `file://`.
 
+`http.server` sends no cache headers, so a browser will happily keep running an old copy of a
+module across an ordinary reload. After editing anything under `assets/js/`, hard reload
+(`Cmd+Shift+R`, or `Cmd+Option+E` then `Cmd+R` in Safari) or keep DevTools open with "Disable
+cache" ticked. Restarting the server does not help, because the stale copy is in the browser.
+
 **Tests: open `http://localhost:8000/tests.html`.** There is no test runner and no CI. That page is
 the whole suite and it must read "All 97 checks passed". It runs in the browser and covers:
 

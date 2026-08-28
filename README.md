@@ -44,9 +44,9 @@ Every link and asset path in the site is relative, so it works from a project su
 `https://<user>.github.io/chess-club/`. The `.nojekyll` file stops GitHub from running the pages
 through Jekyll.
 
-## Colours
+## Colors
 
-Built from the school colours, navy `#002060` and gold `#FEDA24`, softened so they can carry a
+Built from the school colors, navy `#002060` and gold `#FEDA24`, softened so they can carry a
 whole page without shouting.
 
 The navy is dark enough to be text, so it does the heavy lifting: headings, links, buttons and the
@@ -56,7 +56,7 @@ highlighted squares on the board. Dark mode flips the page to the school navy it
 gold carry the warmth.
 
 The board is a soft blue rather than the usual wood, which is what ties the lessons to the rest of
-the site. Every colour is a CSS variable in `assets/css/site.css`, so the board is three tokens
+the site. Every color is a CSS variable in `assets/css/site.css`, so the board is three tokens
 (`--sq-light`, `--sq-dark`, `--board-frame`) if it ever needs to go back to walnut.
 
 Every text pairing meets WCAG AA, and most reach AAA. The pairs worth knowing about, because they
@@ -97,7 +97,7 @@ becoming a second screen, and the lesson index already does that job better.
 ## How the site is put together
 
 ```
-assets/css/site.css          layout, type, colour, dark mode, print styles
+assets/css/site.css          layout, type, color, dark mode, print styles
 assets/css/board.css         the board, the pieces, the highlights
 assets/js/core/chess.js      the rules: move generation, check/mate, notation
 assets/js/core/board-view.js draws a position and reports clicks

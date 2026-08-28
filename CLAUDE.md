@@ -15,11 +15,14 @@ These are design decisions, not accidents. Do not undo them without being asked.
   JavaScript. Do not add a bundler, a framework, a package.json, or a CDN `<link>` or `<script>`.
   The site has to keep working offline, on a filtered school network, and years from now.
 - **No web fonts.** The site uses the reader's own system font stack. Font choices were rejected
-  twice in favour of plain and familiar, so propose the system stack first.
+  twice in favor of plain and familiar, so propose the system stack first.
 - **All paths relative.** A project Pages site is served from `https://<user>.github.io/chess-club/`,
   so a leading `/` breaks every link.
 - **No em dashes** anywhere: site copy, code comments, commit messages, docs. Use a comma, colon,
   parentheses or a period.
+- **Do not commit.** Leave finished work in the working tree and say what changed. Committing is
+  the owner's call, made after looking at the diff. Do not commit, amend, or push unless asked in
+  that turn, and treat an earlier "commit this" as spent rather than standing permission.
 
 ## Commands
 
@@ -106,7 +109,7 @@ lines**, not one line. The widget keeps the lines still consistent with what has
 narrows them as the puzzle proceeds, which matters because two lines can share a first move and then
 diverge, or need different opponent replies. Do not collapse this back to a single string.
 
-**Chess pieces are Unicode glyphs**, and both colours use the *solid* characters (`♚♛♜`) tinted with
+**Chess pieces are Unicode glyphs**, and both colors use the *solid* characters (`♚♛♜`) tinted with
 CSS. Using the outline characters for White is the trap: several platforms substitute a different
 font and the two armies stop matching. `paint-order: stroke fill` is required, or the dark outline
 eats into the white fill and both sides look black.
@@ -126,10 +129,10 @@ before you commit: `tests.html` will fail if there is a forced mate you did not 
 
 ## Styling
 
-Colour and typography are CSS variables at the top of `assets/css/site.css`, defined once for light
+Color and typography are CSS variables at the top of `assets/css/site.css`, defined once for light
 mode and redefined under `prefers-color-scheme: dark`. Change a token, not a rule.
 
-The palette is built from the school colours, navy `#002060` and gold `#FEDA24`. The navy is dark
+The palette is built from the school colors, navy `#002060` and gold `#FEDA24`. The navy is dark
 enough to be text; **the gold is never text on a light background** and appears only as a fill with
 dark navy on top of it. Some pairings are load-bearing and will silently fail contrast if you edit
 one half: `--on-accent` sits on `--accent`, `--on-gold` on `--gold`, `--on-good` on the Solved

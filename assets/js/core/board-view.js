@@ -8,7 +8,7 @@
 
 import { squareName, squareIndex, colorOf, typeOf, fileOf, rankOf } from "./chess.js";
 
-// Solid glyphs for BOTH colours, tinted with CSS.
+// Solid glyphs for BOTH colors, tinted with CSS.
 // Using the outlined characters for White is the classic trap: on
 // several systems they come from a different font (or an emoji font)
 // and the two armies stop looking like they belong on one board.

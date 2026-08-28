@@ -63,7 +63,7 @@ export const endgames = {
       "2... Ke6",
       "3. f4: The pawn joins in, backed up by the king.",
       "3... f5+",
-      "4. Kd4: The kings are doing the real fighting. In an equal endgame, the player whose king reaches the centre first usually wins the pawn race.",
+      "4. Kd4: The kings are doing the real fighting. In an equal endgame, the player whose king reaches the center first usually wins the pawn race.",
     ],
     outro: "A rule of thumb for the endgame: activate your king before you push your pawns.",
   },

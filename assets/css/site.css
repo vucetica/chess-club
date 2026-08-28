@@ -1,5 +1,5 @@
 /* ============================================================
-   site.css: layout, type and colour for the JBW Chess Club site
+   site.css: layout, type and color for the JBW Chess Club site
    ============================================================ */
 
 :root {
@@ -14,7 +14,7 @@
   --font-chess: "Segoe UI Symbol", "Apple Symbols", "Noto Sans Symbols 2",
     "DejaVu Sans", "Arial Unicode MS", sans-serif;
 
-  /* Built from the school colours: navy #002060 and gold #FEDA24.
+  /* Built from the school colors: navy #002060 and gold #FEDA24.
      The navy is dark enough to be text, so it carries headings, links
      and buttons. The gold can never be text on a light background, so
      it only ever appears as a fill with dark navy sitting on top of it. */

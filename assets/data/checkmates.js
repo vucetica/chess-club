@@ -85,11 +85,11 @@ export const checkmates = {
     ],
   },
 
-  "scholars-defence": {
+  "scholars-defense": {
     title: "How to stop Scholar's Mate",
     line: "e4 e5 Bc4 Nc6 Qh5 g6 Qf3 Nf6 Qb3 Nd4",
     notes: [
-      "Same trap, but Black knows what is coming. Two defences work: g6 or Qe7. Here is g6.",
+      "Same trap, but Black knows what is coming. Two defenses work: g6 or Qe7. Here is g6.",
       "1. e4",
       "1... e5",
       "2. Bc4",

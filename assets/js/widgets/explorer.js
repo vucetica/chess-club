@@ -102,8 +102,8 @@ export function createExplorer(host, config = {}) {
     // Boards that teach coordinates answer the click with the name of the
     // square. Everywhere else the prompt is the lesson, so it stays put.
     if (config.squares && emptySq !== undefined) {
-      const light = (fileOf(emptySq) + rankOf(emptySq)) % 2 === 0;
-      say(`That is ${squareName(emptySq)}, ${light ? "a light" : "a dark"} square.`);
+      const white = (fileOf(emptySq) + rankOf(emptySq)) % 2 === 0;
+      say(`That is ${squareName(emptySq)}, ${white ? "a white" : "a black"} square.`);
     } else {
       say(idle);
     }

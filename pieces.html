@@ -32,9 +32,15 @@
     <main id="main">
       <p class="crumb">Lesson 1</p>
       <h1>How the pieces move</h1>
-      <p class="lede">
-        Every board below is live: click a piece and its legal squares light up.
-      </p>
+      <p class="lede">Every board on this page is one you can play with. Click any piece and the
+        squares it can go to light up.</p>
+
+      <div class="note fact">
+        <p><strong>Did you know?</strong> Chess is about 1,500 years old. It started in India as a game called
+        <em>chaturanga</em>, and the pieces were a real army: chariots (our rooks), war elephants
+        (our bishops), horses (our knights) and foot soldiers (our pawns). The horse's jump is the
+        one move that nobody has changed in all that time.</p>
+      </div>
 
       <h2>The set-up</h2>
       <p>
@@ -53,7 +59,7 @@
         <a href="checkmates.html">Lesson 4</a> shows you how to do it.
       </p>
 
-      <h2>First, the board</h2>
+      <h2>The board and its squares</h2>
       <p>
         A chessboard has 64 squares. The columns going up and down are called <strong>files</strong>
         and they are named <code>a</code> to <code>h</code>. The rows going across are called
@@ -106,10 +112,9 @@
               data-prompt="Click the rook. It stops when it reaches a piece: it can capture the black pawn, but its own pawn blocks it completely."></figure>
 
       <h2>The bishop</h2>
-      <p>
-        The bishop moves <strong>diagonally</strong>, as far as it likes. Here is the consequence of that diagonal movement:
-        a bishop that starts on a white square stays on white squares for the entire game.
-      </p>
+      <p>The bishop moves <strong>diagonally</strong>, as far as it likes. That leads to something
+        funny. A bishop that starts on a white square can only ever land on white squares. It will
+        never once touch a black square in the whole game.</p>
 
       <figure data-widget="explorer" data-fen="7k/8/8/3B4/8/8/8/K7 w - - 0 1"
               data-title="A bishop on an empty board"
@@ -135,24 +140,24 @@
               data-prompt="Click the knight. It is completely boxed in by pawns and it still has eight moves. Only the knight can do this."></figure>
 
       <h2>The queen</h2>
-      <p>
-        The queen is a rook and a bishop in one piece: <strong>straight lines and diagonals</strong>,
-        as far as she likes. She is the most powerful piece on the board, which is exactly why you
-        should not throw her into the middle of the enemy army early in the game.
-      </p>
+      <p>The queen is a rook and a bishop in one piece: <strong>straight lines and
+        diagonals</strong>, as far as she likes. She is the strongest piece on the board. That is
+        exactly why you should not send her charging into the enemy army at the start of the game.
+        Everybody will chase her, and every time they chase her they bring out another piece of
+        their own.</p>
 
       <figure data-widget="explorer" data-fen="7k/8/8/3Q4/8/8/8/K7 w - - 0 1"
               data-title="The queen on an empty board"
               data-prompt="Click the queen. From the middle she attacks 27 squares, almost half the board."></figure>
 
       <h2>The king</h2>
-      <p>
-        The king moves <strong>one square in any direction</strong>. He is slow, but he is the whole
-        game: if your king cannot escape from an attack, you lose.
-      </p>
+      <p>The king moves <strong>one square in any direction</strong>. He is slow, but he matters
+        more than every other piece put together. If your king is attacked and cannot get away, the
+        game is over and you have lost.</p>
       <div class="note warn">
-        <p><strong>The one rule kings cannot break.</strong> A king may never move onto a square where
-        it would be captured. That is why the board below will not let you go everywhere.</p>
+        <p><strong>The one rule kings cannot break.</strong> A king may never step onto a square
+          where it could be captured. That is why some squares stay dark when you click the king on
+          the board below. He is not allowed to walk into trouble.</p>
       </div>
 
       <figure data-widget="explorer" data-fen="7k/8/8/3K4/8/3r4/8/8 w - - 0 1"
@@ -160,10 +165,8 @@
               data-prompt="Click the white king. The whole d-file is missing from its choices, because the black rook is watching it."></figure>
 
       <h2>What is each piece worth?</h2>
-      <p>
-        Nobody counts points during a real game, but this table tells you whether a trade is a good deal.
-        If you can win a rook for a knight, you are ahead.
-      </p>
+      <p>Nobody adds up points during a real game. The numbers are here to help you work out whether
+        a trade is a good deal. If you give up a knight and win a rook, you have come out ahead.</p>
 
       <ul class="value-list">
         <li><span class="glyph" aria-hidden="true">&#9823;&#xFE0E;</span><span class="name">Pawn</span><span class="pts">1 point</span></li>

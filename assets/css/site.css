@@ -315,11 +315,13 @@ main.wide { max-width: 68rem; }
 }
 .note.rule { border-left-color: var(--gold); }
 .note.warn { border-left-color: var(--bad); }
+.note.fact { border-left-color: var(--good); }
 .note > :first-child { margin-top: 0; }
 .note > :last-child { margin-bottom: 0; }
 .note strong:first-child { color: var(--accent); }
 .note.rule strong:first-child { color: var(--gold-ink); }
 .note.warn strong:first-child { color: var(--bad); }
+.note.fact strong:first-child { color: var(--good); }
 
 /* --- misc content ------------------------------------------ */
 

@@ -32,10 +32,15 @@
     <main id="main">
       <p class="crumb">Lesson 6</p>
       <h1>Strategy and tactics</h1>
-      <p class="lede">
-        <strong>Tactics</strong> are short tricks that win something right now. <strong>Strategy</strong>
-        is the slow plan that makes those tricks appear. Beginners win games with tactics, so we start there.
-      </p>
+      <p class="lede"><strong>Tactics</strong> are short tricks that win something right now, in the
+        next move or two. <strong>Strategy</strong> is the slow plan that makes those tricks show up
+        in the first place. Most games between beginners are won by tactics, so we start there.</p>
+
+      <div class="note fact">
+        <p><strong>Did you know?</strong> Gambit comes from the Italian <em>gambetto</em>, which means tripping someone
+        with your leg. The same priest who gave his name to the Ruy Lopez brought the word into
+        chess. That is what a gambit does: you hand over a pawn to trip your opponent up.</p>
+      </div>
 
       <h2>Before every single move</h2>
       <div class="note rule">
@@ -48,17 +53,16 @@
       </div>
 
       <h2>The fork</h2>
-      <p>
-        One piece, two targets. Your opponent can only save one of them. Knights are the best forkers
-        in chess because their moves are the hardest to see coming.
-      </p>
+      <p>A fork is one piece attacking two things at the same time, like a fork with two prongs.
+        Your opponent only gets one move, so they can rescue one of them but not both. Whichever one
+        they save, you take the other. Knights are the best forkers in the whole game, because a
+        knight jumps in an L shape and arrives from a direction nobody is watching.</p>
       <figure data-widget="stepper" data-lesson="tactics/fork"></figure>
 
       <h2>The pin</h2>
-      <p>
-        A pin freezes a piece by putting something more valuable behind it. Then you attack the frozen
-        piece again and again, because it cannot run away.
-      </p>
+      <p>A pin freezes a piece. You attack it, and standing right behind it is something more
+        valuable, so if it steps out of the way you win the bigger piece instead. Then you pile on.
+        Attack the frozen piece again and again, because it cannot run away.</p>
       <figure data-widget="stepper" data-lesson="tactics/pin"></figure>
 
       <p>
@@ -69,40 +73,39 @@
               data-prompt="Click the black knight. Nothing lights up: any move would leave its own king in check, and that is never legal."></figure>
 
       <h2>The skewer</h2>
-      <p>
-        A pin turned back to front. The valuable piece is in front, it has to move, and you capture
-        whatever was hiding behind it.
-      </p>
+      <p>A skewer is a pin turned back to front. In a pin, the small piece stands in front and the
+        valuable one hides behind it. In a skewer it is the other way around: the valuable piece is
+        in front. It does not want to be captured, so it moves, and then you take whatever was
+        hiding behind it.</p>
       <figure data-widget="stepper" data-lesson="tactics/skewer"></figure>
 
       <h2>The discovered attack</h2>
-      <p>
-        One piece moves out of the way and <em>uncovers</em> an attack from the piece behind it, while making a threat of its own. Two threats, one move, and your opponent can only answer one.
-      </p>
+      <p>One of your pieces steps out of the way, and the piece standing behind it suddenly has a
+        clear line of attack. If the piece that stepped aside makes a threat of its own on the way,
+        your opponent has two problems and only one move to fix them.</p>
       <figure data-widget="stepper" data-lesson="tactics/discovered-attack"></figure>
 
       <h2>Double check</h2>
-      <p>
-        The most forcing move in all of chess. Two pieces give check at once, so blocking and capturing
-        are both useless: no single move can stop two checks. The king <em>must</em> move.
-      </p>
+      <p>A double check is two of your pieces giving check at the same time. Normally there are
+        three ways to answer a check: move the king, block the check, or capture the piece giving
+        it. Against a double check only the first one works, because blocking or capturing can deal
+        with one checker but never with both at once. The king has to run, and that is why a double
+        check is the most forcing move in chess.</p>
       <figure data-widget="stepper" data-lesson="tactics/double-check"></figure>
 
       <h2>Removing the defender</h2>
-      <p>
-        Before you accept that a square is protected, ask who is protecting it, and whether you
-        can take that piece, chase it away, or make it do two jobs at once.
-      </p>
+      <p>When a square looks protected, do not just believe it. Ask who is doing the protecting.
+        Then ask whether you can capture that piece, chase it away, or give it a second job so it
+        cannot do both.</p>
       <figure data-widget="stepper" data-lesson="tactics/removing-the-defender"></figure>
 
       <h2>Now for the strategy</h2>
 
       <h3>Control the center</h3>
-      <p>
-        The four squares <code>d4</code>, <code>e4</code>, <code>d5</code> and <code>e5</code> are the
-        high ground. A knight on <code>e5</code> attacks eight squares; the same knight on <code>a1</code>
-        attacks two. Pieces in the center are simply worth more.
-      </p>
+      <p>The four squares in the middle, <code>d4</code>, <code>e4</code>, <code>d5</code> and
+        <code>e5</code>, are the best spots on the whole board. Count for yourself: a knight on
+        <code>e5</code> attacks eight squares, and the very same knight on <code>a1</code> attacks
+        two. A piece in the center is simply worth more than the same piece on the edge.</p>
 
       <h3>Keep your pieces active</h3>
       <p>
@@ -117,24 +120,22 @@
       </p>
 
       <h3>Pawns cannot go backwards</h3>
-      <p>
-        Every pawn move is permanent, so think twice before making one. Three shapes to know:
-      </p>
+      <p>A pawn can never go back, so every pawn move you make is permanent. Think twice before you
+        push one. Three shapes to know:</p>
       <table>
         <thead><tr><th>Shape</th><th>What it is</th><th>Good or bad?</th></tr></thead>
         <tbody>
-          <tr><td>Doubled pawns</td><td>Two of your pawns on the same file</td><td>Usually a small weakness, because they cannot defend each other</td></tr>
+          <tr><td>Doubled pawns</td><td>Two of your pawns on the same file</td><td>Usually a weakness, because they cannot defend each other</td></tr>
           <tr><td>Isolated pawn</td><td>No friendly pawn on either side of it</td><td>Needs pieces to babysit it, but it does control good squares</td></tr>
-          <tr><td>Passed pawn</td><td>No enemy pawn can stop it reaching the end</td><td>Excellent, and it wins endgames</td></tr>
+          <tr><td>Passed pawn</td><td>No enemy pawn can stop it reaching the end</td><td>Excellent. In an endgame it can march to the end and become a queen</td></tr>
         </tbody>
       </table>
 
       <h3>Trade when you are ahead</h3>
-      <p>
-        If you are a rook up, swap pieces at every fair opportunity. Each trade makes your extra rook
-        a bigger share of what is left on the board. If you are behind, do the opposite: keep pieces on
-        and keep the position complicated.
-      </p>
+      <p>Imagine you have won a rook, so you have one more piece than your opponent does. Now trade
+        pieces whenever the trade is fair. Every swap takes a piece off each side, and the fewer
+        pieces are left, the more that extra rook of yours matters. If you are behind, do the
+        opposite: keep pieces on and keep the position complicated.</p>
 
       <div class="note">
         <p><strong>Practice the tactics.</strong> The <a href="puzzles.html">puzzles page</a> has forks,

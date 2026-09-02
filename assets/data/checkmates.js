@@ -15,10 +15,10 @@ export const checkmates = {
 
   "ladder-mate": {
     title: "The ladder (two rooks)",
-    fen: "8/8/8/4k3/8/8/R7/1R6 w - - 0 1",
+    fen: "8/8/8/4k3/8/8/R7/1R5K w - - 0 1",
     line: "Ra5+ Ke6 Rb6+ Ke7 Ra7+ Ke8 Rb8#",
     notes: [
-      "Two rooks and nothing else. They work like a ladder: one rook checks, the other builds the next rung.",
+      "The white king can stay in the corner the whole time. The two rooks work like a ladder on their own: one rook checks, the other builds the next rung.",
       "1. Ra5+: The rook takes the whole 5th rank away. The king must climb up a step.",
       "1... Ke6",
       "2. Rb6+: Now the other rook takes the 6th rank. Notice how each rook stays far away from the king so it can never be captured.",

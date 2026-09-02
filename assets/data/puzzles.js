@@ -124,7 +124,7 @@ export const puzzles = [
     id: "m2-01",
     level: "mate2",
     title: "Puzzle 12: build the ladder",
-    fen: "4k3/8/8/8/8/8/R7/1R6 w - - 0 1",
+    fen: "4k3/8/8/8/8/8/R7/1R5K w - - 0 1",
     solutions: ["Ra7 Kf8 Rb8#", "Rb7 Kf8 Ra8#"],
     goal: "White to move. Checkmate in two.",
     hint: "Take away the 7th rank first. Then the 8th rank has nowhere to run to.",
